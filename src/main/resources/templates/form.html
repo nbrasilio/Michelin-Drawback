@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulário Michelin</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/form.css" rel="stylesheet" />
+<link href="css/all.css" rel="stylesheet">
+<!--load all styles -->
+</head>
+<body>
+	<nav id="nav-form">
+		<img src="images/michelin-blue.jpg" class="imagem-nav"> DRAWBACK
+		<form class="botao-nav " th:action="@{/logout}" method="post">
+			<button class="botao-logout" type="submit" title="Sair">
+				<i class="fas fa-sign-out-alt"></i>
+			</button>
+		</form>
+	</nav>
+
+	<div class="container div-form">
+		<form th:action="@{/form-add}" th:object="${registro}" method="post">
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label class="label-form" for="input_ato">Código ATO *</label> <input
+						th:field="*{ato}" type="text" class="form-control" id="input_ato"
+						onkeypress="return somenteNumeros(event)" required="required"
+						>
+				</div>
+				<div class="form-group col-md-2">
+					<label class="label-form" for="input_ncm">NCM *</label> <input
+						th:field="*{ncm}" type="text" class="form-control" id="input_ncm"
+						maxlength="8" required="required" minlength=8
+						onkeypress="return somenteNumeros(event)">
+				</div>
+				<div class="form-group col-md-3">
+					<label class="label-form" for="data_inicio_vigencia">data
+						início vigência *</label> <input th:field="*{dataInicial}" type="date"
+						class="form-control" id="data_inicio_vigencia" required="required">
+				</div>
+				<div class="form-group col-md-3">
+					<label class="label-form" for="data_fim_vigencia">data fim
+						vigência</label> <input th:field="*{dataFinal}" type="date"
+						class="form-control" id="data_fim_vigencia">
+				</div>
+				<div class="form-group col-md-2">
+					<button type="submit" class="btn btn-primary form-control btn-add">
+						<i class="fas fa-plus" style="margin-right: 5px;"></i> Adicionar
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="container div-table">
+		<div id="div_error" th:if="${error}" class="error"><span th:text="${error}"></span></div>
+		<div id="div_message" th:if="${message}" class="message"><span th:text="${message}"></span></div>
+		<table class="table table-bordered tabela-form">
+			<thead class="thead-form">
+				<tr>
+					<th scope="col" class="codigoAto">Código ATO</th>
+					<th scope="col" class="ncm">NCM</th>
+					<th scope="col" class="dataIniVigencia">data início de
+						vigência</th>
+					<th scope="col" class="dataFimVigencia">data fim de vigência</th>
+					<th scope="col" class="botoesTabela" colspan="2">BOTÕES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="registro : ${registros}">
+					<form th:action="@{/edit}" method="post" th:object="${registro}">
+						<input type="hidden" th:value="*{cd_ato_ncm}" id="cd_ato_ncm" name="cd_ato_ncm"/>
+						<input type="hidden" th:value="*{ncm}" id="ncm" name="ncm"/>
+						<input type="hidden" th:value="*{ato}" id="ato" name="ato"/>
+						<input type="hidden" th:value="*{dataInicial}" id="dataInicial" name="dataInicial"/>
+						<td class="codigoAto"><span th:text="*{ato}"></span></td>
+						<td class="ncm"><span th:text="*{ncm}"></span></td>
+						<td class="dataIniVigencia"><span
+							th:text="*{#dates.format(dataInicial, 'dd/MM/yyyy')}"></span></td>
+							
+						<td class="dataFimVigencia"><input
+							th:value="*{dataFinal}" type="date" class="form-control"
+							name="dataFinal" id="dataFinal"></td>
+						<td>
+							<button th:disabled="${registro.dataInicial < actualDate}" title="Excluir"
+								type="submit" name="action" value="delete" >
+								<i class="fas fa-trash-alt" style="width: 39px;"></i>
+							</button>
+						</td>
+						<td>
+							<button title="Editar" type="submit" name="action" value="update">
+								<i class="fas fa-edit" style="width: 39px;"></i>
+							</button>
+						</td>
+					</form>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+<script type="text/javascript">
+	
+		function somenteNumeros(e) {
+	        var charCode = e.charCode ? e.charCode : e.keyCode;
+	        // charCode 8 = backspace   
+	        // charCode 9 = tab
+	        if (charCode != 8 && charCode != 9) {
+	            // charCode 48 equivale a 0   
+	            // charCode 57 equivale a 9
+	            if (charCode < 48 || charCode > 57) {
+	                return false;
+	            }
+	        }
+	    }
+		
+		function validaMensagem(msg) {
+			if (msg.length == "") {
+				return "hidden";
+			} else {
+				return "";
+			}
+		}
+		
+	</script>
+
+</html>

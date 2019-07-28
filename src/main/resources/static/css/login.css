@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+	background-color: #53565A;
+	background-image: url("../images/fundo-portal-fornecedor.JPG");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+#nav-drawback {
+	text-align: center;
+	background-color: #105CAA;
+	color: white;
+	padding: 20px;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.imagem-nav {
+	width: 270px;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+
+#formulario-login {
+	float: left;
+	width: 400px;
+	height: 212px;
+	background-color: rgba(255,255,255,0.4);
+}
+
+.formulario-escrito {
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+#btn-formulario {
+	background-color: #27509B;
+	color: white;
+}
+
+#titulo-formulario {
+	background-color: #105CAA;
+	color: white;
+	padding: 8px;
+	text-align: center;
+}
+
+.login-error {
+	width: 100%;
+	background-color: #D02C2C;
+	font-weight: bold;
+	text-align: center;
+}
+
+.login-logout {
+	width: 100%;
+	background-color: #03C700;
+	font-weight: bold;
+	text-align: center;
+}

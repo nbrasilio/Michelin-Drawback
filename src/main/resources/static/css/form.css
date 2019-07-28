@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+body {
+	background-color: #53565A;
+	background-image: url("../images/fundo-portal-fornecedor.JPG");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+.imagem-nav {
+	width: 270px;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+
+.botao-logout {
+	position: fixed;
+	right: 2%;
+	top: 5;
+}
+
+#nav-form {
+	text-align: center;
+	background-color: #105CAA;
+	color: white;
+	padding: 20px;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.div-form {
+	background-color: #53565A;
+	color: white;
+}
+
+.label-form {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.btn-add {
+	margin-top: 41px;
+}
+
+.div-table {
+	margin-top: 40px;
+}
+
+.div-table thead {
+	text-transform: uppercase;
+}
+
+.div-table tbody {
+	background-color: rgba(255,255,255,0.8);
+}
+
+.tabela-form {
+	margin-left: 10%;
+	width: 80%;
+}
+
+.thead-form {
+	background-color: #105CAA;
+	color: white;
+}
+
+thead, tbody{
+  display: block;  
+}
+
+tbody{
+  overflow-y: scroll;
+  height: 363px;
+}
+
+.codigoAto {
+	text-align: center;
+	width:135px;
+}
+
+.ncm {
+	text-align: center;
+	width:135px;
+}
+
+.dataIniVigencia {
+	text-align: center;
+  	width:240px;
+}
+
+.dataFimVigencia{
+	text-align: center;
+	width:240px;
+}
+
+.botoesTabela {
+	text-align: center;
+	width:135px;
+}
+
+.botao-nav {
+	float: right;
+}
+
+.form-error {
+	width: 100%;
+	background-color: #D02C2C;
+	font-weight: bold;
+	text-align: center;
+}
+
+.form-success {
+	width: 100%;
+	background-color: #03C700;
+	font-weight: bold;
+	text-align: center;
+}
+
+.error {
+	margin-left: 10%;
+	width: 80%;
+	background-color: #D02C2C;
+}
+
+.error span {
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+.message {
+	margin-left: 10%;
+	width: 80%;
+	background-color: #03C700;
+}
+
+.message span {
+	margin-left: 5px;
+	font-weight: bold;
+}
+
